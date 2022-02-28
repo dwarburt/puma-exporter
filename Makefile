@@ -1,7 +1,7 @@
-PKG_NAME:=github.com/sapcc/puma-exporter
+PKG_NAME:=github.com/dwarburt/puma-exporter
 BUILD_DIR:=bin
 MOSQUITTO_EXPORTER_BINARY:=$(BUILD_DIR)/puma_exporter
-IMAGE := sapcc/puma-exporter
+IMAGE := dwarburt/puma-exporter
 VERSION=0.1.0
 LDFLAGS=-s -w -X main.Version=$(VERSION) -X main.GITCOMMIT=`git rev-parse --short HEAD`
 CGO_ENABLED=0
