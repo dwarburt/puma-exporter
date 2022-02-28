@@ -75,7 +75,7 @@ func main() {
 			Name:   "control-url,u",
 			Usage:  "url for the puma control socket",
 			EnvVar: "CONTROL_URL",
-			Value:  "http://127.0.0.1:7353",
+			Value:  "http://127.0.0.1:9000",
 		},
 		cli.StringFlag{
 			Name:   "auth-token,a",
@@ -91,7 +91,8 @@ func runServer(c *cli.Context) {
 
 	go func() {
 		for {
-			updateMetrics(fmt.Sprintf("%s/stats?token=%s", c.GlobalString("control-url"), c.GlobalString("auth-token")))
+			//updateMetrics(fmt.Sprintf("%s/stats?token=%s", c.GlobalString("control-url"), c.GlobalString("auth-token")))
+			updateMetrics(fmt.Sprintf("%s/stats", c.GlobalString("control-url")))
 			time.Sleep(5 * time.Second)
 		}
 	}()
